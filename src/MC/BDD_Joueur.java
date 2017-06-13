@@ -40,7 +40,6 @@ public class BDD_Joueur {
             String sql="SELECT Pseudo FROM Joueur WHERE Pseudo ='"+ name+ "';" ;
             ResultSet rs= stmt.executeQuery(sql);
             while (rs.next()){
-                //String test = rs.getString("Pseudo");
                 connection.close();
                 return true;
             }
