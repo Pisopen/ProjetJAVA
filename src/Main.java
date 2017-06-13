@@ -53,8 +53,7 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }*/
-
-        BDD_Joueur Joueur=new BDD_Joueur();
-        Joueur.Add_player("Pisop");
+        BDD_Joueur base=new BDD_Joueur();
+        System.out.println(base.playerexist("antoine"));
     }
 }

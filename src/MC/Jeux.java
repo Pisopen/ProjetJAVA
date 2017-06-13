@@ -1,6 +1,7 @@
 package MC;
 
 import java.awt.*;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -106,5 +107,4 @@ public abstract class Jeux {
     /*
     METHODES POUR SAUVEGARDER AVEC BD ICI
      */
-
 }
