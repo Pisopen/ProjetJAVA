@@ -33,19 +33,59 @@ public class BDD_Joueur {
         }
         connection.close();
     }
-    public String playerexist(String Pseudo){
+    public boolean playerexist(String name) throws SQLException {
         connect();
         try{
             Statement stmt =connection.createStatement();
-            String sql="SELECT Pseudo FROM Joueur WHERE Pseudo ='"+ Pseudo+ "';" ;
+            String sql="SELECT Pseudo FROM Joueur WHERE Pseudo ='"+ name+ "';" ;
             ResultSet rs= stmt.executeQuery(sql);
             while (rs.next()){
-                String test = rs.getString("Pseudo");
-                return test;
+                //String test = rs.getString("Pseudo");
+                connection.close();
+                return true;
             }
         }catch (Exception e){
             e.printStackTrace();
         }
-        return null;
+        connection.close();
+        return false;
+    }
+
+    public void updateWin(String name){
+        connect();
+        try{
+            int nb=0;
+            Statement stmt=connection.createStatement();
+            String sql="SELECT NbWin FROM Joueur WHERE Pseudo ='"+name+"';";
+            ResultSet rs=stmt.executeQuery(sql);
+            while (rs.next()){
+                nb=rs.getInt("NbWin");
+                nb=nb+1;
+            }
+            String sql_update="UPDATE Joueur SET NbWin="+nb+" WHERE Pseudo='"+name+"'";
+            stmt.executeUpdate(sql_update);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateLoose(String name){
+        connect();
+        try{
+            int nb=0;
+            Statement stmt=connection.createStatement();
+            String sql="SELECT NbLoose FROM Joueur WHERE Pseudo ='"+name+"';";
+            ResultSet rs=stmt.executeQuery(sql);
+            while (rs.next()){
+                nb=rs.getInt("NbLoose");
+                nb=nb+1;
+            }
+            String sql_update="UPDATE Joueur SET NbLoose="+nb+" WHERE Pseudo='"+name+"'";
+            stmt.executeUpdate(sql_update);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

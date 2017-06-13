@@ -54,6 +54,8 @@ public class Main {
             e.printStackTrace();
         }*/
         BDD_Joueur base=new BDD_Joueur();
-        System.out.println(base.playerexist("antoine"));
+        System.out.println(base.playerexist("Bud"));
+        base.updateWin("antoine");
+        base.updateLoose("antoine");
     }
 }
