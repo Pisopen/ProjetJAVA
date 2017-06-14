@@ -1,5 +1,6 @@
 import MC.*;
 import View.Fenetre;
+import View.FentreAjoutBD;
 
 import java.sql.*;
 
@@ -28,34 +29,8 @@ public class Main {
         System.out.println();
         AB.getPlateau().affichePlateau();
         */
-        /*Connection conn = null;
-        try {
-            String url = "jdbc:mysql://www.budbud.ovh:3306/iatic3";
-            Class.forName ("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection(url, "iatic3", "iatic3");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        FentreAjoutBD fentreAjoutBD = new FentreAjoutBD(500,500,"Ajouter Joueur");
+        fentreAjoutBD.setVisible(true);
 
-        try {
-            Statement stmt = conn.createStatement();
-            String sql = "SELECT * FROM Joueur";
-            ResultSet rs = stmt.executeQuery(sql);
-            //STEP 5: Extract data from result set
-
-            while (rs.next()) {
-                //Retrieve by column name
-                int id = rs.getInt("IDJoueur");
-                String pseudo = rs.getString("Pseudo");
-                //Display values
-                System.out.println("ID: " + id + " PSEUDO: " +pseudo);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
-        BDD_Joueur base=new BDD_Joueur();
-        System.out.println(base.playerexist("Bud"));
-        base.updateWin("antoine");
-        base.updateLoose("antoine");
     }
 }

@@ -107,4 +107,12 @@ public abstract class Jeux {
     /*
     METHODES POUR SAUVEGARDER AVEC BD ICI
      */
+
+    public void addJoueurBD (String name) throws SQLException {
+        if (!tabJoueur.playerexist(name)) {
+            tabJoueur.Add_player(name);
+        }
+        else
+            System.out.println("Player exist");
+    }
 }
